@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cytios Systems | Soluciones tecnológicas para vender más</title>
+  <meta
+    name="description"
+    content="Cytios Systems crea páginas web, sistemas y soluciones digitales para empresas que quieren vender mejor y proyectar una imagen profesional."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #08111b;
+      --bg-soft: #101a27;
+      --panel: rgba(12, 20, 31, 0.92);
+      --panel-strong: rgba(10, 17, 27, 0.98);
+      --line: rgba(186, 198, 214, 0.14);
+      --text: #edf2f7;
+      --muted: #9caec2;
+      --brand: #7d96b2;
+      --brand-2: #2e4966;
+      --accent: #dce5ef;
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --container: min(1160px, calc(100% - 2rem));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(72, 96, 124, 0.22), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(35, 58, 84, 0.28), transparent 26%),
+        linear-gradient(180deg, #07111b 0%, #0b1520 52%, #09131d 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 20%),
+        radial-gradient(circle at top, rgba(125, 150, 178, 0.1), transparent 38%);
+      opacity: 0.9;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(7, 13, 20, 0.88);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .brand-logo {
+      height: 52px;
+      width: auto;
+      max-width: min(290px, 48vw);
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
+      transition: transform 180ms ease;
+    }
+
+    .brand:hover .brand-logo,
+    .brand:focus-visible .brand-logo {
+      transform: translateY(-1px);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.6rem 1.2rem;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      transition: color 180ms ease, opacity 180ms ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 0.78rem 1.1rem;
+      border-radius: 14px;
+      background: rgba(46, 73, 102, 0.48);
+      border: 1px solid rgba(125, 150, 178, 0.22);
+      color: var(--text) !important;
+    }
+
+    .hero {
+      padding: 4rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.4rem;
+      align-items: start;
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      padding-top: 0.35rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.52rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: var(--accent);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 999px;
+      background: var(--brand);
+    }
+
+    .hero h1 {
+      margin: 1rem 0 0.9rem;
+      max-width: 12ch;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2.1rem, 4.2vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+    }
+
+    .hero p {
+      max-width: 52ch;
+      margin: 0 0 1.45rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 52px;
+      padding: 0 1.3rem;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #315f8c, #1c3957);
+      border-color: rgba(171, 190, 212, 0.22);
+      color: #f7fbff;
+      box-shadow: 0 14px 30px rgba(10, 19, 31, 0.28);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .hero-note {
+      display: inline-block;
+      margin-top: 0.2rem;
+      padding-left: 0.9rem;
+      border-left: 2px solid rgba(125, 150, 178, 0.38);
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .point {
+      padding: 1.15rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--line);
+      border-top: 2px solid rgba(125, 150, 178, 0.3);
+    }
+
+    .point strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      color: var(--accent);
+    }
+
+    .point span {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 1.75rem;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
+        var(--panel-strong);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(125, 150, 178, 0.55), transparent 72%);
+    }
+
+    .hero-card h2 {
+      margin: 0 0 1rem;
+      font-size: 1.25rem;
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .mini-stack {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.4rem;
+    }
+
+    .system-image {
+      margin: 0 0 1.25rem;
+      padding: 1rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--line);
+    }
+
+    .system-image img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+      object-fit: cover;
+    }
+
+    .system-caption {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .mini-card {
+      padding: 1rem 1rem 1rem 1.1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--line);
+      border-left: 3px solid rgba(125, 150, 178, 0.24);
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 1rem;
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .section {
+      padding: 3.2rem 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 0.7rem;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 0.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+
+    .section-head p {
+      max-width: 64ch;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      padding: 1.45rem;
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transition: border-color 180ms ease, transform 180ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(186, 198, 214, 0.22);
+    }
+
+    .card .icon {
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      background: rgba(125, 150, 178, 0.12);
+      border: 1px solid rgba(186, 198, 214, 0.14);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .card h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      padding: 0.95rem 1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+    }
+
+    .feature-item b {
+      flex: 0 0 auto;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(125, 150, 178, 0.16);
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .feature-item span {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .portfolio-card {
+      display: grid;
+      gap: 1rem;
+      min-height: 100%;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .demo-card {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .demo-list {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .demo-list li::marker {
+      color: var(--accent);
+    }
+
+    .demo-credentials,
+    .demo-disclaimer {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .demo-credentials strong {
+      color: var(--text);
+    }
+
+    .demo-side {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .demo-side .card {
+      min-height: 100%;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .pill {
+      padding: 0.48rem 0.78rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .contact-panel {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-block {
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--line);
+    }
+
+    .contact-block small {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-block strong {
+      font-size: 1.02rem;
+    }
+
+    .contact-block strong a {
+      color: var(--text);
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .cta-banner {
+      margin: 2rem 0 4rem;
+      padding: 1.8rem;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(135deg, rgba(125, 150, 178, 0.1), rgba(255, 255, 255, 0.02)),
+        var(--panel-strong);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-banner h3 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .cta-banner p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+    }
+
+    .site-footer {
+      padding: 1rem 0 2.4rem;
+      color: rgba(246, 251, 255, 0.62);
+      font-size: 0.95rem;
+      background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02));
+    }
+
+    .site-footer .container {
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .site-footer p {
+      margin: 0.35rem 0;
+    }
+
+    .site-footer strong {
+      color: var(--text);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      height: 56px;
+      padding: 0 1rem;
+      border-radius: 14px;
+      background: #153927;
+      border: 1px solid rgba(109, 211, 146, 0.32);
+      color: #eefcf2;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.26);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .whatsapp-float:hover,
+    .whatsapp-float:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-float small {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(238, 252, 242, 0.72);
+    }
+
+    .whatsapp-float strong {
+      display: block;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .portfolio-grid,
+      .demo-grid,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2.9rem;
+      }
+
+      .hero h1 {
+        max-width: 11ch;
+      }
+
+      .hero-copy {
+        padding-top: 0;
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-banner {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .header-inner {
+        align-items: flex-start;
+        padding: 1rem 0;
+      }
+
+      .brand-logo {
+        height: 46px;
+        max-width: 220px;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 10vw, 3.2rem);
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .whatsapp-float {
+        right: 16px;
+        bottom: 16px;
+        height: 52px;
+        padding: 0 0.95rem;
+      }
+
+      .whatsapp-float small {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Cytios Systems">
+        <img class="brand-logo" src="img/citiossistems.png" alt="Cytios Systems">
+      </a>
+
+      <nav class="nav" aria-label="Navegacion principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a
+          class="nav-cta"
+          href="https://joaocisneros.github.io/portafolio"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Ver trabajos reales
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="reveal is-visible hero-copy">
+          <span class="eyebrow">Soluciones digitales que venden</span>
+          <h1>Soluciones web y sistemas para negocios en crecimiento.</h1>
+          <p>
+            Desarrollamos plataformas digitales que mejoran tu imagen, optimizan tu
+            operaci&oacute;n y facilitan m&aacute;s ventas.
+          </p>
+
+          <div class="cta-row">
+            <a
+              class="button button-primary"
+              href="https://joaocisneros.github.io/portafolio"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ver trabajos reales
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://wa.me/51921676408"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Escribir por WhatsApp
+            </a>
+          </div>
+
+          <p class="hero-note">Respuesta rápida por WhatsApp | Cotización sin compromiso</p>
+
+          <div class="hero-points" aria-label="Puntos clave">
+            <div class="point">
+              <strong>Webs</strong>
+              <span>Páginas corporativas para vender y posicionar tu marca.</span>
+            </div>
+            <div class="point">
+              <strong>Sistemas</strong>
+              <span>Soluciones para ordenar procesos y operar con más control.</span>
+            </div>
+            <div class="point">
+              <strong>Soporte</strong>
+              <span>Acompañamiento claro antes, durante y después del lanzamiento.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal">
+          <figure class="system-image">
+            <img src="img/citiossistems.png" alt="Identidad visual de Cytios Systems">
+            <figcaption class="system-caption">
+              Imagen de referencia de Cytios Systems integrada desde la carpeta <code>img</code>.
+            </figcaption>
+          </figure>
+          <h2>Tu web principal debe vender.</h2>
+          <p>
+            La página de empresa genera confianza, comunica valor y convierte visitas en
+            oportunidades. El portafolio se usa como respaldo profesional para demostrar
+            tus trabajos y reforzar la decisión del cliente.
+          </p>
+
+          <div class="mini-stack">
+            <div class="mini-card">
+              <strong>Empresa</strong>
+              <span>Cytios Systems presenta la oferta, el enfoque y la atención profesional.</span>
+            </div>
+            <div class="mini-card">
+              <strong>Portafolio</strong>
+              <span>Tu experiencia y tus proyectos viven aparte para demostrar resultados.</span>
+            </div>
+            <div class="mini-card">
+              <strong>Conversión</strong>
+              <span>Primero vendes confianza. Luego muestras evidencia con tus trabajos.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Servicios</span>
+          <h2>Soluciones diseñadas para que tu negocio se vea fuerte y funcione mejor.</h2>
+          <p>
+            No se trata solo de tener una página bonita. Creamos activos digitales que
+            elevan tu imagen, ordenan tu operación y te ayudan a cerrar más clientes.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="icon">01</div>
+            <h3>Páginas web corporativas</h3>
+            <p>
+              Sitios pensados para transmitir seriedad, explicar tu propuesta y convertir
+              visitantes en contactos reales.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">02</div>
+            <h3>Tiendas online y catálogos</h3>
+            <p>
+              Estructuras digitales para mostrar productos, facilitar decisiones y abrir
+              nuevas oportunidades de venta.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">03</div>
+            <h3>Sistemas a medida</h3>
+            <p>
+              Herramientas para gestionar inventario, pedidos, clientes o procesos internos
+              con más orden y visibilidad.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="nosotros">
+      <div class="container about-grid">
+        <div class="card reveal">
+          <span class="section-label">Sobre nosotros</span>
+          <h2 style="margin: 0 0 1rem; font-family: 'Manrope', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.035em;">
+            Cytios Systems convierte ideas en presencia profesional.
+          </h2>
+          <p style="margin: 0; color: var(--muted); line-height: 1.8;">
+            Trabajamos con enfoque estratégico y ejecución clara. Nuestro objetivo no es
+            solo entregar un sitio o un sistema, sino ayudarte a proyectar una marca
+            confiable y preparada para crecer.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <b>1</b>
+              <span>Entendemos tu negocio antes de diseñar la solución.</span>
+            </div>
+            <div class="feature-item">
+              <b>2</b>
+              <span>Priorizamos claridad, velocidad y una imagen que inspire confianza.</span>
+            </div>
+            <div class="feature-item">
+              <b>3</b>
+              <span>Combinamos venta, tecnología y estructura profesional en una sola propuesta.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <span class="section-label">Respaldo profesional</span>
+          <h2 style="margin: 0 0 1rem; font-family: 'Manrope', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.035em;">
+            Tu portafolio demuestra, pero la empresa es la que vende.
+          </h2>
+          <p style="margin: 0 0 1.2rem; color: var(--muted); line-height: 1.8;">
+            Esta separación es la que te hace ver como una empresa consolidada: la web
+            principal comunica valor y el portafolio respalda con ejemplos reales.
+          </p>
+          <div class="pill-row" style="margin-bottom: 1.4rem;">
+            <span class="pill">Imagen profesional</span>
+            <span class="pill">Más confianza</span>
+            <span class="pill">Mejor posicionamiento</span>
+          </div>
+          <a
+            class="button button-secondary"
+            href="https://joaocisneros.github.io/portafolio"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ver portafolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Confianza</span>
+          <h2>Negocios que ya están creciendo con nosotros</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal">
+            <h3>+10 proyectos</h3>
+            <p>
+              Webs y sistemas desarrollados para diferentes negocios.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Clientes satisfechos</h3>
+            <p>
+              Resultados enfocados en imagen profesional y ventas.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Soporte continuo</h3>
+            <p>
+              Acompañamiento antes, durante y después del proyecto.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Proceso</span>
+          <h2>Cómo trabajamos contigo</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="icon">1</div>
+            <h3>Analizamos tu negocio</h3>
+            <p>Entendemos qué necesitas para vender mejor.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">2</div>
+            <h3>Diseñamos tu solución</h3>
+            <p>Creamos una web o sistema adaptado a tu objetivo.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">3</div>
+            <h3>Lanzamos y optimizamos</h3>
+            <p>Publicamos y mejoramos para obtener resultados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Demo en vivo</span>
+          <h2>Explora cómo funciona una solución real</h2>
+          <p>
+            Accede a una versión funcional del sistema y prueba cómo se gestionan ventas,
+            productos y clientes en un entorno real.
+          </p>
+        </div>
+
+        <div class="demo-grid">
+          <article class="card demo-card reveal">
+            <h3 style="margin: 0; font-size: 1.35rem;">Sistema de Gestión para Farmacias</h3>
+            <p>
+              Plataforma desarrollada para optimizar el control de ventas, inventario y
+              clientes en boticas y farmacias. Permite gestionar productos, registrar ventas
+              en tiempo real y mantener un control claro del negocio.
+            </p>
+
+            <ul class="demo-list">
+              <li>Control de inventario</li>
+              <li>Registro de ventas</li>
+              <li>Gestión de clientes</li>
+              <li>Panel administrativo</li>
+            </ul>
+
+            <div class="cta-row" style="margin: 0;">
+              <a
+                class="button button-primary"
+                href="http://sistema-botica0farmacia.infinityfreeapp.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Ver demo en vivo
+              </a>
+            </div>
+
+            <p class="demo-credentials">
+              Usuario: <strong>demo</strong> | Contraseña: <strong>demo123</strong>
+            </p>
+
+            <p class="demo-disclaimer">
+              *Este es un entorno de demostración. Algunas funciones pueden estar limitadas.
+            </p>
+          </article>
+
+          <div class="demo-side">
+            <article class="card reveal">
+              <h3 style="margin: 0 0 0.75rem; font-size: 1.15rem;">Ideal para vender esta solución</h3>
+              <p>
+                Presenta esta demo como un producto digital listo para negocios del rubro
+                farmacéutico que necesitan más control, velocidad y orden operativo.
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <h3 style="margin: 0 0 0.75rem; font-size: 1.15rem;">Enfoque comercial</h3>
+              <p>
+                Mostrar una demo funcional eleva la confianza del cliente y convierte una
+                idea técnica en una solución concreta, clara y lista para implementar.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Portafolio</span>
+          <h2>Nuestros trabajos refuerzan la propuesta comercial de Cytios Systems.</h2>
+          <p>
+            Usa el portafolio como prueba social y respaldo técnico. Así mantienes una
+            página principal enfocada en vender y una vitrina aparte para demostrar lo que
+            ya sabes hacer.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="card portfolio-card reveal">
+            <h3 style="margin: 0; font-size: 1.3rem;">Web principal de empresa</h3>
+            <p style="margin: 0; color: var(--muted); line-height: 1.8;">
+              Presenta servicios, construye confianza, explica beneficios y dirige a la
+              acción con mensajes claros para el cliente.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Inicio</span>
+              <span class="pill">Servicios</span>
+              <span class="pill">Sobre nosotros</span>
+              <span class="pill">Contacto</span>
+            </div>
+          </article>
+
+          <article class="card portfolio-card reveal">
+            <h3 style="margin: 0; font-size: 1.3rem;">Portafolio externo</h3>
+            <p style="margin: 0; color: var(--muted); line-height: 1.8;">
+              Centraliza tus proyectos y permite mostrar evidencia real cuando el cliente
+              necesita confirmar calidad, estilo y experiencia.
+            </p>
+            <div class="cta-row" style="margin: 0;">
+              <a
+                class="button button-primary"
+                href="https://joaocisneros.github.io/portafolio"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Ver nuestros trabajos
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://joaocisneros.github.io/portafolio"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Ver portafolio
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container contact-grid">
+        <div class="card reveal">
+          <span class="section-label">Contacto</span>
+          <h2 style="margin: 0 0 1rem; font-family: 'Manrope', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.035em;">
+            Hablemos de tu próximo proyecto.
+          </h2>
+          <p style="margin: 0; color: var(--muted); line-height: 1.8;">
+            Si quieres una página web que venda mejor, una presencia más profesional o un
+            sistema para organizar tu negocio, Cytios Systems puede ayudarte a dar ese paso.
+          </p>
+        </div>
+
+        <div class="card contact-panel reveal">
+          <div class="contact-block">
+            <small>Correo</small>
+            <strong>sistemasdesk04@gmail.com</strong>
+          </div>
+          <div class="contact-block">
+            <small>Teléfono</small>
+            <strong>+51 921 676 408</strong>
+          </div>
+          <div class="contact-block">
+            <small>WhatsApp</small>
+            <strong>
+              <a href="https://wa.me/51921676408" target="_blank" rel="noreferrer">
+                +51 921 676 408
+              </a>
+            </strong>
+          </div>
+          <div class="contact-block">
+            <small>Atención</small>
+            <strong>Reuniones virtuales y soporte personalizado</strong>
+          </div>
+          <p class="contact-note">
+            Puedes escribir directo por WhatsApp para una respuesta más rápida y una
+            cotización inmediata.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="cta-banner reveal">
+        <div>
+          <h3>¿Listo para mejorar tu negocio?</h3>
+          <p>
+            No te quedes atrás. Empieza hoy con Cytios Systems y convierte tu presencia
+            digital en una herramienta real para vender más.
+          </p>
+        </div>
+        <div class="cta-row" style="margin: 0;">
+          <a
+            class="button button-primary"
+            href="https://wa.me/51921676408"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Hablar por WhatsApp
+          </a>
+          <a class="button button-secondary" href="#contacto">Solicitar cotización</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Cytios Systems</strong></p>
+      <p>Soluciones digitales para negocios que quieren crecer.</p>
+      <p>Correo: sistemasdesk04@gmail.com</p>
+      <p>Tel&eacute;fono: +51 921 676 408</p>
+    </div>
+  </footer>
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/51921676408"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Escribir por WhatsApp"
+  >
+    <span>
+      <small>Contacto directo</small>
+      <strong>WhatsApp</strong>
+    </span>
+  </a>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
