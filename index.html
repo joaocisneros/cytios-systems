@@ -1,20 +1,46 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-PE">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cytios Systems | Soluciones tecnológicas</title>
+  <!--
+    ============================================================
+    SEO: reemplaza https://www.cytiossystems.com por tu dominio
+    final cuando lo tengas (busca "cytiossystems.com" en este
+    archivo, en robots.txt y en sitemap.xml).
+    ============================================================
+  -->
+  <title>Cytios Systems | Diseño de Páginas Web y Sistemas a Medida en Perú</title>
   <meta
     name="description"
-    content="Cytios Systems: páginas web, sistemas y soluciones digitales para negocios en crecimiento."
+    content="Creamos páginas web profesionales, tiendas online y sistemas a medida que generan confianza y atraen más clientes a tu negocio. Cotiza tu proyecto sin compromiso."
   >
-  <meta property="og:title" content="Cytios Systems | Soluciones tecnológicas">
-  <meta property="og:description" content="Páginas web, sistemas y soluciones digitales para negocios en crecimiento.">
-  <meta property="og:image" content="img/cytios-systems.png">
+  <meta name="keywords" content="diseño de páginas web, desarrollo web Perú, sistemas a medida, tiendas online, software para negocios, Cytios Systems">
+  <meta name="author" content="Cytios Systems">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#08111b">
+  <link rel="canonical" href="https://www.cytiossystems.com/">
+
+  <!-- SEO local (Perú) -->
+  <meta name="geo.region" content="PE">
+  <meta name="geo.placename" content="Perú">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cytios Systems | Diseño de Páginas Web y Sistemas a Medida">
+  <meta property="og:description" content="Páginas web profesionales y sistemas a medida que generan confianza y atraen más clientes. Cotiza sin compromiso.">
+  <meta property="og:image" content="https://www.cytiossystems.com/img/cytios-systems.png">
+  <meta property="og:image:alt" content="Cytios Systems - Soluciones tecnológicas">
+  <meta property="og:url" content="https://www.cytiossystems.com/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cytios Systems">
+  <meta property="og:locale" content="es_PE">
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cytios Systems | Soluciones tecnológicas">
-  <meta name="twitter:description" content="Páginas web, sistemas y soluciones digitales para negocios en crecimiento.">
+  <meta name="twitter:title" content="Cytios Systems | Diseño de Páginas Web y Sistemas a Medida">
+  <meta name="twitter:description" content="Páginas web profesionales y sistemas a medida que generan confianza y atraen más clientes. Cotiza sin compromiso.">
+  <meta name="twitter:image" content="https://www.cytiossystems.com/img/cytios-systems.png">
+
   <link rel="icon" href="img/cytios-systems.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -366,6 +392,37 @@
       color: var(--muted);
       font-size: 0.9rem;
       line-height: 1.6;
+    }
+
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.4rem;
+      margin: 1.3rem 0 0.2rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .trust-strip li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .trust-strip li::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 999px;
+      background: rgba(125, 150, 178, 0.16);
+      border: 1px solid rgba(186, 198, 214, 0.18);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 800;
     }
 
     .point {
@@ -1061,6 +1118,44 @@
       }
     }
   </style>
+
+  <!-- Datos estructurados para Google (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Cytios Systems",
+    "description": "Diseño de páginas web profesionales, tiendas online y sistemas a medida para negocios en crecimiento.",
+    "url": "https://www.cytiossystems.com/",
+    "logo": "https://www.cytiossystems.com/img/cytios-systems.png",
+    "image": "https://www.cytiossystems.com/img/cytios-systems.png",
+    "email": "sistemasdesk04@gmail.com",
+    "telephone": "+51921676408",
+    "areaServed": "PE",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PE"
+    },
+    "sameAs": [
+      "https://joaocisneros.github.io/portafolio"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+51921676408",
+      "contactType": "customer service",
+      "availableLanguage": "Spanish"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Cytios Systems",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Páginas web corporativas" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tiendas online y catálogos" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistemas a medida" } }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
   <!-- Preloader -->
@@ -1129,7 +1224,11 @@
             </a>
           </div>
 
-          <p class="hero-note">Respuesta rápida | Cotización sin compromiso</p>
+          <ul class="trust-strip">
+            <li>+10 proyectos entregados</li>
+            <li>Respuesta el mismo día</li>
+            <li>Cotización sin compromiso</li>
+          </ul>
 
           <div class="hero-points" aria-label="Puntos clave">
             <div class="point">
