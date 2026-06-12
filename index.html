@@ -667,6 +667,62 @@
       min-height: 100%;
     }
 
+    /* Testimonios */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .testimonial {
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .testimonial-stars {
+      color: #e6c34a;
+      font-size: 1.05rem;
+      letter-spacing: 0.15em;
+    }
+
+    .testimonial-quote {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .testimonial-avatar {
+      flex: 0 0 auto;
+      width: 2.7rem;
+      height: 2.7rem;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(125, 150, 178, 0.16);
+      border: 1px solid var(--line);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-author strong {
+      display: block;
+      font-size: 0.98rem;
+    }
+
+    .testimonial-author span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
     /* Demo */
     .demo-grid {
       display: grid;
@@ -1006,6 +1062,7 @@
       .about-grid,
       .contact-grid,
       .portfolio-grid,
+      .testimonial-grid,
       .demo-grid,
       .grid-3 {
         grid-template-columns: 1fr;
@@ -1327,56 +1384,62 @@
         </div>
 
         <div class="card reveal">
-          <span class="section-label">Respaldo profesional</span>
-          <h2 class="card-title">La empresa vende, el portafolio respalda.</h2>
+          <span class="section-label">Por qué elegirnos</span>
+          <h2 class="card-title">Tecnología que trabaja para tu negocio.</h2>
           <p class="card-text card-text--spaced">
-            Web principal enfocada en ventas. Portafolio como evidencia profesional.
+            No entregamos solo una web bonita: creamos herramientas que te ayudan a vender más y a ordenar tu día a día.
           </p>
           <div class="pill-row pill-row--spaced">
             <span class="pill">Imagen profesional</span>
-            <span class="pill">Más confianza</span>
-            <span class="pill">Mejor posicionamiento</span>
+            <span class="pill">Más clientes</span>
+            <span class="pill">Operación ordenada</span>
           </div>
-          <a
-            class="button button-secondary"
-            href="https://joaocisneros.github.io/portafolio"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Ver portafolio
-          </a>
+          <a class="button button-secondary" href="#contacto">Solicitar cotización</a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="testimonios">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-label">Confianza</span>
-          <h2>Resultados que hablan</h2>
+          <span class="section-label">Testimonios</span>
+          <h2>Lo que dicen nuestros clientes</h2>
+          <p>
+            +10 proyectos entregados con imagen profesional, ventas reales y soporte continuo.
+          </p>
         </div>
 
-
-        <div class="grid-3">
-          <article class="card reveal">
-            <h3>+10 proyectos</h3>
-            <p>
-              Webs y sistemas entregados.
+        <!--
+          REEMPLAZA estos testimonios de ejemplo por reseñas REALES de tus
+          clientes (nombre + negocio). Son lo que más genera confianza y ventas.
+        -->
+        <div class="testimonial-grid">
+          <article class="card testimonial reveal">
+            <div class="testimonial-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p class="testimonial-quote">
+              Quedé muy conforme con mi página. Se ve profesional y por fin transmito confianza a mis clientes desde el primer momento.
             </p>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar">JP</span>
+              <div>
+                <strong>Juan P.</strong>
+                <span>Farmacia San José</span>
+              </div>
+            </div>
           </article>
 
-          <article class="card reveal">
-            <h3>Clientes satisfechos</h3>
-            <p>
-              Imagen profesional y ventas reales.
+          <article class="card testimonial reveal">
+            <div class="testimonial-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p class="testimonial-quote">
+              El sistema me ordenó por completo el negocio. Controlo inventario y ventas sin complicaciones y el soporte siempre responde.
             </p>
-          </article>
-
-          <article class="card reveal">
-            <h3>Soporte continuo</h3>
-            <p>
-              Soporte continuo en cada etapa.
-            </p>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar">MR</span>
+              <div>
+                <strong>María R.</strong>
+                <span>Minimarket El Sol</span>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -1473,50 +1536,6 @@
               </p>
             </article>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-label">Portafolio</span>
-          <h2>Tus proyectos como respaldo profesional.</h2>
-          <p>
-            Portafolio como evidencia. Web principal enfocada en ventas.
-          </p>
-        </div>
-
-        <div class="portfolio-grid">
-          <article class="card portfolio-card reveal">
-            <h3>Web principal de empresa</h3>
-            <p>
-              Servicios, confianza y acción en un solo lugar.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Inicio</span>
-              <span class="pill">Servicios</span>
-              <span class="pill">Sobre nosotros</span>
-              <span class="pill">Contacto</span>
-            </div>
-          </article>
-
-          <article class="card portfolio-card reveal">
-            <h3>Portafolio externo</h3>
-            <p>
-              Evidencia real de calidad, estilo y experiencia.
-            </p>
-            <div class="cta-row cta-row--flush">
-              <a
-                class="button button-primary"
-                href="https://joaocisneros.github.io/portafolio"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Ver portafolio
-              </a>
-            </div>
-          </article>
         </div>
       </div>
     </section>
