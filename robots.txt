@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.cytiossystems.com/sitemap.xml
+Sitemap: https://cytios-systems.vercel.app/sitemap.xml
