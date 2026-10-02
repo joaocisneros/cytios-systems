@@ -51,9 +51,9 @@
       --line: rgba(186, 198, 214, 0.14);
       --text: #edf2f7;
       --muted: #9caec2;
-      --brand: #7d96b2;
-      --brand-2: #2e4966;
-      --accent: #dce5ef;
+      --brand: #4b9fff;
+      --brand-2: #174b7a;
+      --accent: #e7f3ff;
       --shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
       --radius-xl: 24px;
       --radius-lg: 18px;
@@ -74,8 +74,8 @@
       margin: 0;
       font-family: "Manrope", sans-serif;
       background:
-        radial-gradient(circle at 14% 18%, rgba(72, 96, 124, 0.22), transparent 30%),
-        radial-gradient(circle at 82% 12%, rgba(35, 58, 84, 0.28), transparent 26%),
+        radial-gradient(circle at 14% 18%, rgba(49, 126, 198, 0.2), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(30, 90, 148, 0.24), transparent 26%),
         linear-gradient(180deg, #07111b 0%, #0b1520 52%, #09131d 100%);
       color: var(--text);
       min-height: 100vh;
@@ -125,35 +125,6 @@
       margin: 0 auto;
     }
 
-    /* Preloader */
-    .preloader {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      display: grid;
-      place-items: center;
-      background: #07111b;
-      transition: opacity 400ms ease;
-    }
-
-    .preloader.fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid var(--line);
-      border-top-color: var(--brand);
-      border-radius: 50%;
-      animation: spin 700ms linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
     /* Header */
     .site-header {
       position: sticky;
@@ -181,8 +152,7 @@
 
     .brand-logo {
       height: 52px;
-      width: auto;
-      max-width: min(290px, 48vw);
+      width: 52px;
       object-fit: contain;
       filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
       transition: transform 180ms ease;
@@ -191,6 +161,23 @@
     .brand:hover .brand-logo,
     .brand:focus-visible .brand-logo {
       transform: translateY(-1px);
+    }
+
+    .brand-name {
+      display: grid;
+      gap: 0.08rem;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.94rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+
+    .brand-name small {
+      color: var(--muted);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
     }
 
     /* Hamburger */
@@ -268,19 +255,18 @@
 
     /* Hero */
     .hero {
-      padding: 4rem 0 4rem;
+      padding: 5.25rem 0 5.5rem;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2.4rem;
-      align-items: start;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      gap: clamp(3rem, 7vw, 6rem);
+      align-items: center;
     }
 
     .hero-copy {
-      max-width: 700px;
-      padding-top: 0.35rem;
+      max-width: 680px;
     }
 
     .eyebrow {
@@ -306,21 +292,21 @@
     }
 
     .hero h1 {
-      margin: 1rem 0 0.9rem;
-      max-width: 12ch;
+      margin: 1.1rem 0 1rem;
+      max-width: 13ch;
       font-family: "Manrope", sans-serif;
-      font-size: clamp(2.1rem, 4.2vw, 3.8rem);
+      font-size: clamp(2.6rem, 5vw, 4.45rem);
       font-weight: 800;
-      line-height: 1.06;
-      letter-spacing: -0.035em;
+      line-height: 1.02;
+      letter-spacing: -0.045em;
     }
 
     .hero p {
-      max-width: 52ch;
-      margin: 0 0 1.45rem;
+      max-width: 55ch;
+      margin: 0 0 1.65rem;
       color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.8;
+      font-size: 1.05rem;
+      line-height: 1.75;
     }
 
     .cta-row {
@@ -360,10 +346,10 @@
     }
 
     .button-primary {
-      background: linear-gradient(180deg, #315f8c, #1c3957);
-      border-color: rgba(171, 190, 212, 0.22);
-      color: #f7fbff;
-      box-shadow: 0 14px 30px rgba(10, 19, 31, 0.28);
+      background: linear-gradient(135deg, #338fe2, #25649d);
+      border-color: rgba(94, 177, 255, 0.46);
+      color: #ffffff;
+      box-shadow: 0 14px 30px rgba(32, 118, 196, 0.28);
     }
 
     .button-secondary {
@@ -442,7 +428,7 @@
 
     .hero-card {
       position: relative;
-      padding: 1.75rem;
+      padding: 1rem;
       border-radius: var(--radius-xl);
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
@@ -471,6 +457,73 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.7;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 12% -8% -8% 18%;
+      border-radius: 50%;
+      background: rgba(50, 137, 199, 0.12);
+      filter: blur(60px);
+    }
+
+    .hero-logo-frame {
+      margin: 0;
+      display: grid;
+      min-height: 340px;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(56, 189, 248, 0.09), transparent 48%),
+        #07111d;
+    }
+
+    .hero-logo-frame img {
+      display: block;
+      width: min(78%, 340px);
+      height: auto;
+    }
+
+    .hero-showcase-copy {
+      padding: 1.35rem 0.35rem 0.35rem;
+    }
+
+    .hero-showcase-copy strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .hero-showcase-copy p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .hero-capabilities {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .hero-capabilities span {
+      padding: 0.7rem 0.5rem;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-align: center;
     }
 
     .mini-stack {
@@ -574,8 +627,55 @@
     }
 
     .card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(186, 198, 214, 0.22);
+      transform: translateY(-4px);
+      border-color: rgba(75, 159, 255, 0.32);
+    }
+
+    .services-visual {
+      position: relative;
+      margin: 0 0 1.4rem;
+      overflow: hidden;
+      border: 1px solid rgba(75, 159, 255, 0.24);
+      border-radius: var(--radius-xl);
+      background: #07111b;
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.3);
+    }
+
+    .services-visual img {
+      width: 100%;
+      height: clamp(260px, 34vw, 400px);
+      object-fit: cover;
+    }
+
+    .services-visual::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 45%;
+      background: linear-gradient(transparent, rgba(4, 12, 22, 0.92));
+      pointer-events: none;
+    }
+
+    .services-visual figcaption {
+      position: absolute;
+      z-index: 1;
+      right: 1.2rem;
+      bottom: 1.1rem;
+      left: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .services-visual figcaption span {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid rgba(131, 196, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(4, 15, 27, 0.78);
+      backdrop-filter: blur(10px);
+      color: #ddebfa;
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
     .card .icon {
@@ -667,62 +767,6 @@
       min-height: 100%;
     }
 
-    /* Testimonios */
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.2rem;
-    }
-
-    .testimonial {
-      display: grid;
-      gap: 1rem;
-      align-content: start;
-    }
-
-    .testimonial-stars {
-      color: #e6c34a;
-      font-size: 1.05rem;
-      letter-spacing: 0.15em;
-    }
-
-    .testimonial-quote {
-      margin: 0;
-      color: var(--text);
-      font-size: 1.02rem;
-      line-height: 1.7;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-
-    .testimonial-avatar {
-      flex: 0 0 auto;
-      width: 2.7rem;
-      height: 2.7rem;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: rgba(125, 150, 178, 0.16);
-      border: 1px solid var(--line);
-      color: var(--accent);
-      font-weight: 800;
-      font-size: 0.9rem;
-    }
-
-    .testimonial-author strong {
-      display: block;
-      font-size: 0.98rem;
-    }
-
-    .testimonial-author span {
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
     /* Demo */
     .demo-grid {
       display: grid;
@@ -745,6 +789,149 @@
 
     .demo-list li::marker {
       color: var(--accent);
+    }
+
+    .demo-options {
+      display: grid;
+      gap: 0.9rem;
+      margin: 0.25rem 0 1.1rem;
+    }
+
+    .demo-option {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .demo-option h4 {
+      margin: 0 0 0.35rem;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .demo-option p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .demo-access {
+      margin: 0.8rem 0 0;
+      padding: 0.7rem 0.85rem;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.08);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .demo-access strong {
+      color: var(--text);
+    }
+
+    .product-showcases {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.35rem;
+      align-items: stretch;
+    }
+
+    .product-showcase {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .product-showcase__image {
+      margin: 0;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: #0c1725;
+    }
+
+    .product-showcase__image img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .product-showcase__content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+
+    .product-showcase__content h3 {
+      margin: 0.65rem 0 0.65rem;
+      font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    }
+
+    .product-showcase__content > p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .product-features {
+      display: grid;
+      gap: 0.5rem;
+      margin: 1rem 0 1.2rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .product-features li {
+      position: relative;
+      padding-left: 1.45rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .product-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .product-showcase__action {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: auto;
+      padding-top: 0.15rem;
+    }
+
+    .demo-login {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1rem 0 1.2rem;
+    }
+
+    .demo-login span {
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.07);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .demo-login strong {
+      color: var(--text);
+    }
+
+    .product-showcase .demo-disclaimer {
+      margin: -0.25rem 0 1.1rem;
+      font-size: 0.82rem;
+      line-height: 1.55;
     }
 
     .demo-credentials,
@@ -790,6 +977,12 @@
 
     .demo-card .system-image {
       margin: 0 0 1.25rem;
+    }
+
+    .demo-card .system-image img {
+      max-height: 240px;
+      object-fit: contain;
+      background: #ffffff;
     }
 
     .pill-row {
@@ -866,6 +1059,7 @@
     }
 
     .form-group input,
+    .form-group select,
     .form-group textarea {
       padding: 0.85rem 1rem;
       border-radius: var(--radius-md);
@@ -879,8 +1073,21 @@
     }
 
     .form-group input:focus,
+    .form-group select:focus,
     .form-group textarea:focus {
       border-color: rgba(125, 150, 178, 0.5);
+    }
+
+    .form-group select {
+      appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+      background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+    }
+
+    .form-group select option {
+      color: #0b1420;
     }
 
     .form-group textarea {
@@ -938,25 +1145,48 @@
 
     /* Footer */
     .site-footer {
-      padding: 1rem 0 2.4rem;
+      padding: 2.4rem 0;
       color: rgba(246, 251, 255, 0.62);
       font-size: 0.95rem;
       background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02));
     }
 
-    .site-footer .container {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr 0.9fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer-grid h3,
+    .footer-grid strong {
+      color: var(--text);
+    }
+
+    .footer-grid h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-grid p {
+      margin: 0.35rem 0;
+      line-height: 1.65;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      margin-top: 1.8rem;
       padding-top: 1.2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
-      display: grid;
-      gap: 0.35rem;
-    }
-
-    .site-footer p {
-      margin: 0.35rem 0;
-    }
-
-    .site-footer strong {
-      color: var(--text);
+      font-size: 0.85rem;
     }
 
     /* WhatsApp float */
@@ -1062,14 +1292,17 @@
       .about-grid,
       .contact-grid,
       .portfolio-grid,
-      .testimonial-grid,
       .demo-grid,
       .grid-3 {
         grid-template-columns: 1fr;
       }
 
+      .product-showcases {
+        grid-template-columns: 1fr;
+      }
+
       .hero {
-        padding-top: 2.9rem;
+        padding: 3.5rem 0 4rem;
       }
 
       .hero h1 {
@@ -1078,6 +1311,10 @@
 
       .hero-copy {
         padding-top: 0;
+      }
+
+      .hero-logo-frame {
+        min-height: 300px;
       }
 
       .hero-points {
@@ -1134,6 +1371,11 @@
     }
 
     @media (max-width: 680px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+
       .header-inner {
         align-items: flex-start;
         padding: 1rem 0;
@@ -1141,11 +1383,29 @@
 
       .brand-logo {
         height: 46px;
-        max-width: 220px;
+        width: 46px;
       }
 
       .hero h1 {
         font-size: clamp(2rem, 10vw, 3.2rem);
+      }
+
+      .hero-logo-frame {
+        min-height: 240px;
+      }
+
+      .hero-capabilities {
+        grid-template-columns: 1fr;
+      }
+
+      .services-visual img {
+        height: 230px;
+      }
+
+      .services-visual figcaption {
+        right: 0.8rem;
+        bottom: 0.8rem;
+        left: 0.8rem;
       }
 
       .button {
@@ -1210,10 +1470,6 @@
 </head>
 <body>
   <!-- Preloader -->
-  <div id="preloader" class="preloader" aria-hidden="true">
-    <div class="spinner"></div>
-  </div>
-
   <!-- Skip link -->
   <a href="#inicio" class="skip-link">Saltar al contenido</a>
 
@@ -1221,6 +1477,7 @@
     <div class="container header-inner">
       <a class="brand" href="#inicio" aria-label="Cytios Systems">
         <img class="brand-logo" src="img/cytios-systems.png" alt="Cytios Systems - Soluciones tecnológicas">
+        <span class="brand-name">CYTIOS <small>SYSTEMS</small></span>
       </a>
 
       <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
@@ -1232,15 +1489,14 @@
       <nav class="nav" id="main-nav" aria-label="Navegación principal">
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
+        <a href="#cisma-fact">Proyecto destacado</a>
         <a href="#nosotros">Sobre nosotros</a>
         <a href="#contacto">Contacto</a>
         <a
           class="nav-cta"
-          href="https://joaocisneros.github.io/portafolio"
-          target="_blank"
-          rel="noreferrer"
+          href="#contacto"
         >
-          Ver trabajos reales
+          Cotizar proyecto
         </a>
       </nav>
     </div>
@@ -1251,19 +1507,17 @@
       <div class="container hero-grid">
         <div class="reveal is-visible hero-copy">
           <span class="eyebrow">Soluciones digitales a medida</span>
-          <h1>Dale a tu negocio la imagen que merece.</h1>
+          <h1>Webs y sistemas que hacen crecer tu negocio.</h1>
           <p>
-            Diseñamos páginas web y sistemas que transmiten confianza, atraen clientes y hacen crecer tu negocio.
+            Creamos soluciones digitales modernas que atraen clientes, fortalecen tu marca y simplifican tu operación.
           </p>
 
           <div class="cta-row">
             <a
               class="button button-primary"
-              href="https://joaocisneros.github.io/portafolio"
-              target="_blank"
-              rel="noreferrer"
+              href="#cisma-fact"
             >
-              Ver trabajos reales
+              Ver proyectos
             </a>
             <a
               class="button button-secondary"
@@ -1271,7 +1525,7 @@
               target="_blank"
               rel="noreferrer"
             >
-              Escribir por WhatsApp
+              Solicitar propuesta
             </a>
           </div>
 
@@ -1281,43 +1535,19 @@
             <li>Cotización sin compromiso</li>
           </ul>
 
-          <div class="hero-points" aria-label="Puntos clave">
-            <div class="point">
-              <strong>Webs</strong>
-              <span>Diseño moderno que posiciona tu marca.</span>
-            </div>
-            <div class="point">
-              <strong>Sistemas</strong>
-              <span>Herramientas que ordenan tu negocio.</span>
-            </div>
-            <div class="point">
-              <strong>Soporte</strong>
-              <span>Te acompañamos de principio a fin.</span>
-            </div>
-          </div>
         </div>
 
-        <aside class="hero-card reveal">
-          <figure class="system-image">
+        <aside class="hero-card hero-visual reveal">
+          <figure class="hero-logo-frame">
             <img src="img/cytios-systems.png" alt="Identidad visual de Cytios Systems" loading="lazy">
           </figure>
-          <h2>Tu presencia digital importa.</h2>
-          <p>
-            Una web profesional genera confianza antes de que te llamen. Un sistema ordenado te permite trabajar con más control y menos caos.
-          </p>
-
-          <div class="mini-stack">
-            <div class="mini-card">
-              <strong>Imagen profesional</strong>
-              <span>Tu negocio se ve serio, moderno y confiable desde el primer vistazo.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Más clientes</strong>
-              <span>Una web bien hecha convierte visitantes en contactos reales.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Operación ordenada</strong>
-              <span>Sistemas que te dan control total de tu negocio.</span>
+          <div class="hero-showcase-copy">
+            <strong>Tu aliado tecnológico</strong>
+            <p>Diseño, desarrollo y acompañamiento para convertir tus ideas en resultados.</p>
+            <div class="hero-capabilities" aria-label="Servicios principales">
+              <span>Páginas web</span>
+              <span>Sistemas</span>
+              <span>Soporte</span>
             </div>
           </div>
         </aside>
@@ -1328,31 +1558,40 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="section-label">Servicios</span>
-          <h2>Soluciones para que tu negocio crezca.</h2>
+          <h2>Soluciones para vender y trabajar mejor.</h2>
         </div>
 
+        <figure class="services-visual reveal">
+          <img src="img/servicios-digitales.png" alt="Ecosistema digital con página web, tienda online y panel de gestión" loading="lazy">
+          <figcaption>
+            <span>Diseño web</span>
+            <span>Comercio digital</span>
+            <span>Sistemas empresariales</span>
+          </figcaption>
+        </figure>
+
         <div class="grid-3">
-          <article class="card reveal">
+          <article class="card service-card reveal">
             <div class="icon">01</div>
             <h3>Páginas web corporativas</h3>
             <p>
-              Sitios que transmiten seriedad y convierten visitantes en clientes.
+              Una presencia profesional que genera confianza y nuevos contactos.
             </p>
           </article>
 
-          <article class="card reveal">
+          <article class="card service-card reveal">
             <div class="icon">02</div>
             <h3>Tiendas online y catálogos</h3>
             <p>
-              Muestra tus productos y abre nuevas oportunidades de venta.
+              Tus productos disponibles para vender y cotizar desde cualquier lugar.
             </p>
           </article>
 
-          <article class="card reveal">
+          <article class="card service-card reveal">
             <div class="icon">03</div>
             <h3>Sistemas a medida</h3>
             <p>
-              Gestiona inventario, pedidos y procesos con más orden y control.
+              Automatiza procesos y controla tu operación desde una sola herramienta.
             </p>
           </article>
         </div>
@@ -1363,31 +1602,31 @@
       <div class="container about-grid">
         <div class="card reveal">
           <span class="section-label">Sobre nosotros</span>
-          <h2 class="card-title">Ideas que se convierten en presencia profesional.</h2>
+          <h2 class="card-title">Diseñamos con propósito.</h2>
           <p class="card-text">
-            Creamos marcas confiables y preparadas para crecer.
+            Cada proyecto comienza entendiendo qué necesita tu negocio y qué espera tu cliente.
           </p>
           <div class="feature-list">
             <div class="feature-item">
               <b>1</b>
-              <span>Entendemos tu negocio primero.</span>
+              <span>Estrategia enfocada en tus objetivos.</span>
             </div>
             <div class="feature-item">
               <b>2</b>
-              <span>Claridad, velocidad e imagen profesional.</span>
+              <span>Diseño claro, rápido y fácil de usar.</span>
             </div>
             <div class="feature-item">
               <b>3</b>
-              <span>Venta, tecnología y estructura en una sola propuesta.</span>
+              <span>Tecnología preparada para crecer contigo.</span>
             </div>
           </div>
         </div>
 
         <div class="card reveal">
           <span class="section-label">Por qué elegirnos</span>
-          <h2 class="card-title">Tecnología que trabaja para tu negocio.</h2>
+          <h2 class="card-title">Resultados antes que adornos.</h2>
           <p class="card-text card-text--spaced">
-            No entregamos solo una web bonita: creamos herramientas que te ayudan a vender más y a ordenar tu día a día.
+            Combinamos diseño y tecnología para resolver necesidades reales de tu negocio.
           </p>
           <div class="pill-row pill-row--spaced">
             <span class="pill">Imagen profesional</span>
@@ -1399,143 +1638,113 @@
       </div>
     </section>
 
-    <section class="section" id="testimonios">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-label">Testimonios</span>
-          <h2>Lo que dicen nuestros clientes</h2>
-          <p>
-            +10 proyectos entregados con imagen profesional, ventas reales y soporte continuo.
-          </p>
-        </div>
-
-        <!--
-          REEMPLAZA estos testimonios de ejemplo por reseñas REALES de tus
-          clientes (nombre + negocio). Son lo que más genera confianza y ventas.
-        -->
-        <div class="testimonial-grid">
-          <article class="card testimonial reveal">
-            <div class="testimonial-stars" aria-label="5 de 5 estrellas">★★★★★</div>
-            <p class="testimonial-quote">
-              Quedé muy conforme con mi página. Se ve profesional y por fin transmito confianza a mis clientes desde el primer momento.
-            </p>
-            <div class="testimonial-author">
-              <span class="testimonial-avatar">JP</span>
-              <div>
-                <strong>Juan P.</strong>
-                <span>Farmacia San José</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card testimonial reveal">
-            <div class="testimonial-stars" aria-label="5 de 5 estrellas">★★★★★</div>
-            <p class="testimonial-quote">
-              El sistema me ordenó por completo el negocio. Controlo inventario y ventas sin complicaciones y el soporte siempre responde.
-            </p>
-            <div class="testimonial-author">
-              <span class="testimonial-avatar">MR</span>
-              <div>
-                <strong>María R.</strong>
-                <span>Minimarket El Sol</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
           <span class="section-label">Proceso</span>
-          <h2>Cómo trabajamos</h2>
+          <h2>Un proceso claro, de principio a fin.</h2>
         </div>
 
         <div class="grid-3">
           <article class="card reveal">
             <div class="icon">1</div>
-            <h3>Analizamos tu negocio</h3>
-            <p>Qué necesitas para vender mejor.</p>
+            <h3>Descubrimiento</h3>
+            <p>Definimos objetivos, usuarios y prioridades.</p>
           </article>
 
           <article class="card reveal">
             <div class="icon">2</div>
-            <h3>Diseñamos tu solución</h3>
-            <p>Web o sistema adaptado a tu objetivo.</p>
+            <h3>Diseño y desarrollo</h3>
+            <p>Construimos y validamos la solución contigo.</p>
           </article>
 
           <article class="card reveal">
             <div class="icon">3</div>
-            <h3>Lanzamos y optimizamos</h3>
-            <p>Publicamos y optimizamos.</p>
+            <h3>Lanzamiento y soporte</h3>
+            <p>Publicamos, medimos y seguimos mejorando.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="cisma-fact">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-label">Demo en vivo</span>
-          <h2>Prueba una solución real</h2>
+          <span class="section-label">Cisma Fact</span>
+          <h2>Facturación y APIs listas para probar</h2>
           <p>
-            Accede a un sistema funcional y gestiona ventas, productos y clientes en vivo.
+            Conoce la solución oficial o ingresa directamente a la consola demo.
           </p>
         </div>
 
-        <div class="demo-grid">
-          <article class="card demo-card reveal">
-            <figure class="system-image">
-              <img src="img/image.png" alt="Panel del Sistema de Gestión para Farmacias - Cytios Systems" loading="lazy">
+        <div class="product-showcases">
+          <article class="card product-showcase reveal">
+            <figure class="product-showcase__image">
+              <img src="img/cismafact-plataforma.png" alt="Plataforma oficial de Cisma Fact para facturación electrónica y API RUC/DNI" loading="lazy">
             </figure>
-            <h3>Sistema de Gestión para Farmacias</h3>
-            <p>
-              Sistema para gestionar ventas, inventario y clientes en farmacias.
-            </p>
-
-            <ul class="demo-list">
-              <li>Control de inventario</li>
-              <li>Registro de ventas</li>
-              <li>Gestión de clientes</li>
-              <li>Panel administrativo</li>
-            </ul>
-
-            <div class="cta-row cta-row--flush">
-              <a
-                class="button button-primary"
-                href="http://sistema-botica0farmacia.infinityfreeapp.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Ver demo en vivo
-              </a>
+            <div class="product-showcase__content">
+              <span class="section-label">Facturación y consultas</span>
+              <h3>Cisma Fact — Facturación electrónica y API RUC/DNI</h3>
+              <p>
+                Emite comprobantes, consulta datos de personas y empresas, o integra ambos servicios directamente con tu sistema.
+              </p>
+              <ul class="product-features">
+                <li>Facturas, boletas, notas de crédito, débito y guías de remisión.</li>
+                <li>Firma con certificado digital y envío directo a SUNAT.</li>
+                <li>Seguimiento del estado de cada comprobante.</li>
+                <li>Descarga de PDF, XML y respuesta CDR.</li>
+                <li>API REST documentada para integrar tu propio sistema.</li>
+                <li>Consultas de personas por DNI y empresas por RUC.</li>
+              </ul>
+              <div class="product-showcase__action">
+                <a class="button button-primary" href="https://cismafact.alwaysdata.net/" target="_blank" rel="noreferrer">
+                  Conocer la plataforma
+                </a>
+                <a class="button button-secondary" href="https://cismafact.alwaysdata.net/register" target="_blank" rel="noreferrer">
+                  Crear cuenta
+                </a>
+              </div>
             </div>
-
-            <p class="demo-credentials">
-              Usuario: <strong>demo</strong> | Contraseña: <strong>demo123</strong>
-            </p>
-
-            <p class="demo-disclaimer">
-              *Entorno de demostración. Funciones limitadas.
-            </p>
           </article>
 
-          <div class="demo-side">
-            <article class="card reveal">
-              <h3>Ideal para farmacias</h3>
+          <article class="card product-showcase reveal">
+            <figure class="product-showcase__image">
+              <img src="img/demo-cismafact.png" alt="Consola demo de Cisma Fact para facturación electrónica y consultas DNI y RUC" loading="lazy">
+            </figure>
+            <div class="product-showcase__content">
+              <span class="section-label">Demo gratuita</span>
+              <h3>Prueba la facturación y las consultas DNI/RUC</h3>
               <p>
-                Producto digital listo para negocios que necesitan más control y orden.
+                Utiliza la consola para enviar solicitudes de prueba, revisar las respuestas de la API y conocer el flujo antes de integrarlo.
               </p>
-            </article>
-
-            <article class="card reveal">
-              <h3>Enfoque comercial</h3>
-              <p>
-                Una demo funcional convierte una idea técnica en una solución concreta.
+              <ul class="product-features">
+                <li>Configura la conexión con las credenciales proporcionadas.</li>
+                <li>Envía facturas y boletas de prueba mediante la API.</li>
+                <li>Revisa la respuesta y el PDF generado del comprobante.</li>
+                <li>Consulta un DNI y recibe nombres y apellidos.</li>
+                <li>Consulta un RUC y recibe razón social, estado, condición y domicilio fiscal.</li>
+                <li>Detecta respuestas correctas y errores antes de conectar tu sistema real.</li>
+              </ul>
+              <div class="demo-login" aria-label="Credenciales de acceso a la demostración">
+                <span>Usuario: <strong>demo</strong></span>
+                <span>Contraseña: <strong>demo</strong></span>
+              </div>
+              <p class="demo-disclaimer">
+                *Los resultados son demostrativos y los comprobantes no tienen validez tributaria.
               </p>
-            </article>
-          </div>
+              <div class="product-showcase__action">
+                <a class="button button-primary" href="https://demo-cismafact-facturacion-dni-ruc-ten.vercel.app/#conexion" target="_blank" rel="noreferrer">
+                  Abrir demo
+                </a>
+                <a class="button button-secondary" href="https://cismafact.alwaysdata.net/?asistente=fact_api" target="_blank" rel="noreferrer">
+                  API de facturación
+                </a>
+                <a class="button button-secondary" href="https://cismafact.alwaysdata.net/?asistente=cons_prueba" target="_blank" rel="noreferrer">
+                  API DNI/RUC
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1546,7 +1755,7 @@
           <span class="section-label">Contacto</span>
           <h2 class="card-title">Hablemos de tu proyecto.</h2>
           <p class="card-text">
-            ¿Necesitas una web que venda o un sistema para tu negocio? Escríbenos.
+            Cuéntanos qué necesitas y te responderemos con una propuesta clara.
           </p>
 
           <form class="contact-form" id="contact-form" action="https://formspree.io/f/mdajgpqa" method="POST">
@@ -1560,10 +1769,21 @@
               <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
             </div>
             <div class="form-group">
-              <label for="message">Mensaje</label>
-              <textarea id="message" name="message" placeholder="Cuéntanos sobre tu proyecto..." rows="4" required></textarea>
+              <label for="service">¿Qué servicio necesitas?</label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="pagina-web">Página web corporativa</option>
+                <option value="tienda-online">Tienda online o catálogo</option>
+                <option value="sistema-medida">Sistema a medida</option>
+                <option value="facturacion-api">Facturación o integración API</option>
+                <option value="otro">Otro proyecto</option>
+              </select>
             </div>
-            <button class="button button-primary" type="submit">Enviar mensaje</button>
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" placeholder="Objetivo, funciones necesarias o problema que deseas resolver..." rows="4" required></textarea>
+            </div>
+            <button class="button button-primary" type="submit">Solicitar propuesta</button>
             <div class="form-status" id="form-status" role="status"></div>
           </form>
         </div>
@@ -1587,10 +1807,10 @@
           </div>
           <div class="contact-block">
             <small>Atención</small>
-            <strong>Reuniones virtuales y soporte personalizado</strong>
+            <strong>Remota para todo Perú</strong>
           </div>
           <p class="contact-note">
-            Respuesta rápida por WhatsApp.
+            Para una respuesta más rápida, también puedes escribirnos directamente por WhatsApp.
           </p>
         </div>
       </div>
@@ -1621,10 +1841,25 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p><strong>Cytios Systems</strong></p>
-      <p>Soluciones digitales para negocios en crecimiento.</p>
-      <p>Correo: sistemasdesk04@gmail.com</p>
-      <p>Teléfono: +51 921 676 408</p>
+      <div class="footer-grid">
+        <div>
+          <h3>Cytios Systems</h3>
+          <p>Webs, sistemas y soluciones digitales para negocios que quieren crecer con orden.</p>
+        </div>
+        <nav class="footer-links" aria-label="Navegación del pie de página">
+          <strong>Explorar</strong>
+          <a href="#servicios">Servicios</a>
+          <a href="#cisma-fact">Proyecto destacado</a>
+          <a href="#nosotros">Sobre nosotros</a>
+        </nav>
+        <div class="footer-links">
+          <strong>Contacto</strong>
+          <a href="mailto:sistemasdesk04@gmail.com">sistemasdesk04@gmail.com</a>
+          <a href="tel:+51921676408">+51 921 676 408</a>
+          <a href="https://wa.me/51921676408" target="_blank" rel="noreferrer">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Cytios Systems. Todos los derechos reservados.</div>
     </div>
   </footer>
 
@@ -1653,15 +1888,6 @@
   </a>
 
   <script>
-    // Preloader
-    window.addEventListener("load", () => {
-      const pl = document.getElementById("preloader");
-      if (pl) {
-        pl.classList.add("fade-out");
-        setTimeout(() => pl.remove(), 400);
-      }
-    });
-
     // Mobile menu
     const hamburger = document.getElementById("hamburger");
     const nav = document.getElementById("main-nav");
